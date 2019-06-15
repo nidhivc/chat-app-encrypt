@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({
+    templateUrl: 'login.component.html',
+    styleUrls: ['login.component.scss']
+})
 export class LoginComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
@@ -43,9 +46,9 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 (data: any) => {
                     // if (data.code == 200) {
-                       console.log(data)
-                        // this.alertService.success('Login successful', true);
-                        // this.router.navigate(['/login']);
+                    console.log(data)
+                    // this.alertService.success('Login successful', true);
+                    // this.router.navigate(['/login']);
                     // }
                     this.alertService.success('Login successful', true);
                     this.router.navigate(['/chat']);
