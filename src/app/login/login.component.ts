@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private router: Router,
         private AuthenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService) {
+      
+    }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -45,13 +47,13 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 (data: any) => {
-                    // if (data.code == 200) {
-                    console.log(data)
-                    // this.alertService.success('Login successful', true);
-                    // this.router.navigate(['/login']);
-                    // }
-                    this.alertService.success('Login successful', true);
-                    this.router.navigate(['/chat']);
+                    if (data.code == 200) {
+                        console.log(data)
+                        localStorage.setItem('usetItem', data.data);
+                        this.alertService.success('Login successful', true);
+                        this.router.navigate(['/chat']);
+                    }
+
                 },
                 error => {
                     this.alertService.error(error);
@@ -59,3 +61,4 @@ export class LoginComponent implements OnInit {
                 });
 
     }
+}
