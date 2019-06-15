@@ -1,4 +1,5 @@
-﻿<div *ngIf='accessLimit != 0'>
+﻿<button *ngIf='accessLimit != 0 && (acccessCount == accessLimit)' (click)='geUrl()'>Get Message</button>
+<div *ngIf='accessLimit != 0 && (acccessCount != accessLimit)'>
     <button (click)='geUrl()'>Get Message</button>
     Your Message:{{message}}
     You Left Only {{accessLimit}} Attempts
