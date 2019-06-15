@@ -18,12 +18,15 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';;
 import { ChatComponent } from './chat/chat.component'
 
+// import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        JwSocialButtonsModule
     ],
     declarations: [
         AppComponent,
