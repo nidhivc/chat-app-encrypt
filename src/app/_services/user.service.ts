@@ -17,7 +17,16 @@ export class UserService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+        // let params: any ={};
+        // params.email = user.username
+        // params.password = user.password
+
+        return this.http.post(`${environment.apiUrl}signup`, {
+            'params': {
+                'email': user.username,
+                'password': user.password
+            }
+        });
     }
 
     update(user: User) {
