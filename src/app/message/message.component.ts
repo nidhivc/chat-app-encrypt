@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AlertService, UserService } from '../_services';
+import { AlertService, MessageService } from '../_services';
 
 @Component({ templateUrl: 'message.component.html' })
 export class MessageComponent implements OnInit {
@@ -14,7 +14,7 @@ export class MessageComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private userService: UserService,
+        private messageService: MessageService,
         private alertService: AlertService) { }
 
     ngOnInit() {
@@ -39,7 +39,7 @@ export class MessageComponent implements OnInit {
         }
 
         this.loading = true;
-        this.userService.message(this.messageForm.value)
+        this.messageService.message(this.messageForm.value)
             .pipe(first())
             .subscribe(
                 (data: any) => {

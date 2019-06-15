@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { UserService, AlertService } from '../_services';
+import {  ActivatedRoute } from '@angular/router';
+import { AlertService, MessageService } from '../_services';
 
 
 
@@ -16,7 +16,7 @@ export class UrlComponent implements OnInit {
     acccessCount;
     constructor(
         private router: ActivatedRoute,
-        private userService: UserService,
+        private userService: MessageService,
         private alertService: AlertService) {
         this.link = this.router.snapshot.params['link'];
         this.accessLimit = this.router.snapshot.params['accessLimit'];

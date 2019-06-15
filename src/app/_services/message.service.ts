@@ -1,20 +1,18 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { environment } from '../../environments/environment';
-import { User } from '../_models';
 
 @Injectable()
-export class UserService {
+export class MessageService {
     constructor(private http: HttpClient) { }
 
-    message(user: any) {
+    message(data: any) {
         return this.http.post(`${environment.apiUrl}message/save`, {
             'params': {
-                'message': user.message,
-                'accessLimit': user.displayCount,
-                'downlaodLimit': user.downlaodLimit,
-                "timeLimit": user.timeLimit
+                'message': data.message,
+                'accessLimit': data.displayCount,
+                'downlaodLimit': data.downlaodLimit,
+                "timeLimit": data.timeLimit
             }
         });
     }
