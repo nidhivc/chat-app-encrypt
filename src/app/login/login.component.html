@@ -1,1 +1,9 @@
-﻿<a [href]='link'>{{link}}</a>
+﻿<div *ngIf='accessLimit != 0'>
+    <button (click)='geUrl()'>Get Message</button>
+    Your Message:{{message}}
+    You Left Only {{accessLimit}} Attempts
+    <button (click)='shareURL()'>Share URL</button>
+</div>
+<div *ngIf='accessLimit == 0'>
+    Sorry Message get destroyed
+</div>
