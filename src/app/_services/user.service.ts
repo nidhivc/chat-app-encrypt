@@ -9,16 +9,18 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     register(user: any) {
-        // let params: any ={};
-        // params.email = user.email
-        // params.password = user.password
-
-        return this.http.post(`${environment.apiUrl}signup`, {
+        return this.http.post(`${environment.apiUrl}message/save`, {
             'params': {
-                'email': user.email,
-                'password': user.password
+                'message': user.message,
+                'accessLimit': user.accessLimit,
+                'downlaodLimit': user.downlaodLimit,
+                "timeLimit": user.timeLimit
             }
         });
+    }
+
+    getUrl(key: any) {
+        return this.http.get(`${environment.apiUrl}user/get?id=${key}`);
     }
 
 
