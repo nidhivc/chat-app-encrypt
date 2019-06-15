@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import CryptoJS from 'crypto-js';
+// import CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
 import { ChatService } from '../chat.service';
 import { AuthenticationService } from '../_services';

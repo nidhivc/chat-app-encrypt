@@ -27,12 +27,24 @@
 
         .formLeft {
             text-align: center;
-            background: url(../../assets/images/security.jpg);
             background-size: cover;
             background-position: center;
             color: #ffffff;
             position: relative;
 
+            .form-group {
+                input {
+                    &:focus {
+                        box-shadow: none;
+                        border-color: #012c68;
+                    }
+                }
+                button {
+                    width: 100%;
+                    background: #012c68;
+                    border-color: #012c68;
+                }
+            }
         }
 
         .formRight {

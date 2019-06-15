@@ -26,7 +26,7 @@ import { ChatComponent } from './chat/chat.component'
         ReactiveFormsModule,
         HttpClientModule,
         routing,
-        JwSocialButtonsModule
+        // JwSocialButtonsModule
     ],
     declarations: [
         AppComponent,

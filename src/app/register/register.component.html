@@ -1,24 +1,45 @@
-﻿<h2>SECURE MESSAGE</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">   
-    <div class="form-group">
-        <label for="username">Enter Message</label>
-        <input type="text" formControlName="message" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" />
-        <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
-            <div *ngIf="f.message.errors.required">Message is required</div>
+﻿<div class="formBackground">
+    <div class="container">
+        <div class="row">
+            <div class="formMain">
+                <div class="formLeft">
+                    <h2>SECURE MESSAGE</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        industry's</p>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <!-- <label for="username">Enter Message</label> -->
+                            <input type="text" formControlName="message" class="form-control" placeholder="Enter Message"
+                                [ngClass]="{ 'is-invalid': submitted && f.message.errors }" />
+                            <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                                <div *ngIf="f.message.errors.required">Message is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="password">Access Limit</label> -->
+                            <input type="number" formControlName="displayCount" class="form-control" placeholder="Access limit"
+                                [ngClass]="{ 'is-invalid': submitted && f.displayCount.errors }" />
+                            <div *ngIf="submitted && f.displayCount.errors" class="invalid-feedback">
+                                <div *ngIf="f.displayCount.errors.required">Display Count is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="text">Destroy Time</label> -->
+                            <input type="datetime" formControlName="destroyTime" class="form-control" placeholder="Destroy Time" />
+                        </div>
+                        <div class="form-group">
+                            <button [disabled]="loading" class="btn btn-primary">SEND</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="formRight">
+                    <div class="detail-box">
+                        <h2 class="title">Simple, private file sharing</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s</p>
+                    </div>
+                </div>                
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="password">Access Limit</label>
-        <input type="number" formControlName="displayCount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayCount.errors }" />
-        <div *ngIf="submitted && f.displayCount.errors" class="invalid-feedback">
-            <div *ngIf="f.displayCount.errors.required">Display Count is required</div>          
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="text">Destroy Time</label>
-        <input type="datetime" formControlName="destroyTime" class="form-control"  />        
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">SEND</button>       
-    </div>
-</form>
+</div>
