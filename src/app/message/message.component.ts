@@ -5,9 +5,9 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, UserService } from '../_services';
 
-@Component({ templateUrl: 'register.component.html' })
-export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
+@Component({ templateUrl: 'message.component.html' })
+export class MessageComponent implements OnInit {
+    messageForm: FormGroup;
     loading = false;
     submitted = false;
 
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
+        this.messageForm = this.formBuilder.group({
             message: ['', Validators.required],
             displayCount: ['', Validators.required],
             destroyTime: ['', Validators.required],
@@ -28,22 +28,22 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.messageForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.messageForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.userService.message(this.messageForm.value)
             .pipe(first())
             .subscribe(
                 (data: any) => {
-                    this.router.navigate(['/login', { 'link': data.key, 'accessLimit': this.registerForm.value.displayCount }]);
+                    this.router.navigate(['/url', { 'link': data.key, 'accessLimit': this.messageForm.value.displayCount }]);
                     // if (data.code == 200) {        
 
                 },

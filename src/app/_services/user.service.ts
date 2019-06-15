@@ -8,7 +8,7 @@ import { User } from '../_models';
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    register(user: any) {
+    message(user: any) {
         return this.http.post(`${environment.apiUrl}message/save`, {
             'params': {
                 'message': user.message,

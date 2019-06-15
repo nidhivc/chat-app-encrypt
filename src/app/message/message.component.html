@@ -1,5 +1,5 @@
 ﻿<h2>SECURE MESSAGE</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">   
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">   
     <div class="form-group">
         <label for="username">Enter Message</label>
         <input type="text" formControlName="message" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" />

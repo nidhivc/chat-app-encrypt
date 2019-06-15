@@ -1,21 +1,21 @@
-﻿import { NgModule }      from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
-import { AppComponent }  from './app.component';
-import { routing }        from './app.routing';
+import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 
 import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';;
+import { UrlComponent } from './url';
+import { MessageComponent } from './message';;
 import { ChatComponent } from './chat/chat.component'
 
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
@@ -32,10 +32,10 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
         AppComponent,
         AlertComponent,
         HomeComponent,
-        LoginComponent,
-        RegisterComponent
-,
-        ChatComponent    ],
+        UrlComponent,
+        MessageComponent
+        ,
+        ChatComponent],
     providers: [
         AuthGuard,
         AlertService,

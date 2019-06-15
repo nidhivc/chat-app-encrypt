@@ -5,10 +5,10 @@ import { UserService, AlertService } from '../_services';
 
 
 @Component({
-    templateUrl: 'login.component.html',
-    styleUrls: ['login.component.scss']
+    templateUrl: 'url.component.html',
+    styleUrls: ['url.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class UrlComponent implements OnInit {
     link;
     loading = false;
     message;
