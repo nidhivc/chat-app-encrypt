@@ -43,16 +43,9 @@ export class RegisterComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 (data: any) => {
+                    this.router.navigate(['/login', { 'link': data.key, 'accessLimit': this.registerForm.value.displayCount }]);
                     // if (data.code == 200) {        
-                    this.userService.getUrl(data.key)                       
-                        .subscribe(
-                            (data: any) => {                               
-                                this.router.navigate(['/login', { 'link': data.key }]);                                
-                            },
-                            error => {
-                                this.alertService.error(error);
-                                this.loading = false;
-                            });                    
+
                 },
                 error => {
                     this.alertService.error(error);

@@ -12,7 +12,7 @@ export class UserService {
         return this.http.post(`${environment.apiUrl}message/save`, {
             'params': {
                 'message': user.message,
-                'accessLimit': user.accessLimit,
+                'accessLimit': user.displayCount,
                 'downlaodLimit': user.downlaodLimit,
                 "timeLimit": user.timeLimit
             }
