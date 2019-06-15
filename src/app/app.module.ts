@@ -15,7 +15,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
+import { RegisterComponent } from './register';;
+import { ChatComponent } from './chat/chat.component'
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { RegisterComponent } from './register';
         HomeComponent,
         LoginComponent,
         RegisterComponent
-    ],
+,
+        ChatComponent    ],
     providers: [
         AuthGuard,
         AlertService,

@@ -8,21 +8,16 @@ import { environment } from '../../environments/environment';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string) {       
-        return this.http.post<any>(`${environment.apiUrl}login`, {
+    login(email: string, password: string) {
+        console.log('`${environment.apiUrl}login`', `${environment.apiUrl}login`);
+        console.log('email', email);
+        console.log('password', password);
+        return this.http.post(`${environment.apiUrl}login`, {
             'params': {
-                'email': username,
+                'email': email,
                 'password': password
-            })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
-
-                return user;
-            }));
+            }
+        });
     }
 
     logout() {

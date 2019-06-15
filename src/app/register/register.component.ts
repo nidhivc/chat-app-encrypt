@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, UserService } from '../_services';
 
-@Component({templateUrl: 'register.component.html'})
+@Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             // firstName: ['', Validators.required],
             // lastName: ['', Validators.required],
-            username: ['', Validators.required],
+            email: ['', [Validators.required,Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
@@ -41,7 +41,12 @@ export class RegisterComponent implements OnInit {
         this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
-                data => {
+                (data: any) => {
+                    if (data.code == 200) {
+                        localStorage.setItem('userData', data);
+                        this.alertService.success('Registration successful', true);
+                        this.router.navigate(['/login']);
+                    }
                     this.alertService.success('Registration successful', true);
                     this.router.navigate(['/login']);
                 },
