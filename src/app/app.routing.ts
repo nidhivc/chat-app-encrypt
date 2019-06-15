@@ -1,16 +1,14 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-
-import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
+import { UrlComponent } from './url';
+import { MessageComponent } from './message';
 import { AuthGuard } from './_guards';
-import { ChatComponent } from './chat/chat.component';
+import { DisplayMsgComponent } from './display-msg/display-msg.component';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'chat', component: ChatComponent },
+    { path: '', component: MessageComponent, canActivate: [AuthGuard] },
+    { path: 'url', component: UrlComponent },
+    { path: 'message', component: MessageComponent },   
+    { path: 'displayMessage', component: DisplayMsgComponent },   
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

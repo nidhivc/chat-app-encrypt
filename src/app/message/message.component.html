@@ -1,0 +1,24 @@
+﻿<h2>SECURE MESSAGE</h2>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">   
+    <div class="form-group">
+        <label for="username">Enter Message</label>
+        <input type="text" formControlName="message" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" />
+        <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+            <div *ngIf="f.message.errors.required">Message is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Access Limit</label>
+        <input type="number" formControlName="displayCount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayCount.errors }" />
+        <div *ngIf="submitted && f.displayCount.errors" class="invalid-feedback">
+            <div *ngIf="f.displayCount.errors.required">Display Count is required</div>          
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="number">Destroy Time</label>
+        <input type="number" formControlName="destroyTime" class="form-control"  />        
+    </div>
+    <div class="form-group">
+        <button  class="btn btn-primary">SEND</button>       
+    </div>
+</form>

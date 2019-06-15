@@ -3,22 +3,22 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AlertService, UserService } from '../_services';
+import { AlertService, MessageService } from '../_services';
 
-@Component({ templateUrl: 'register.component.html', styleUrls: ['register.component.scss'] })
-export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
+@Component({ templateUrl: 'message.component.html' })
+export class MessageComponent implements OnInit {
+    messageForm: FormGroup;
     loading = false;
     submitted = false;
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private userService: UserService,
+        private messageService: MessageService,
         private alertService: AlertService) { }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
+        this.messageForm = this.formBuilder.group({
             message: ['', Validators.required],
             displayCount: ['', Validators.required],
             destroyTime: ['', Validators.required],
@@ -28,22 +28,23 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.messageForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.messageForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.messageService.message(this.messageForm.value)
             .pipe(first())
             .subscribe(
                 (data: any) => {
-                    this.router.navigate(['/login', { 'link': data.key, 'accessLimit': this.registerForm.value.displayCount }]);
+                    localStorage.setItem('accessLimit', this.messageForm.value.displayCount);
+                    this.router.navigate(['/url', { 'link': data.key }]);
                     // if (data.code == 200) {        
 
                 },
