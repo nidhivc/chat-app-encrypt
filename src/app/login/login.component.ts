@@ -13,13 +13,14 @@ export class LoginComponent implements OnInit {
     loading = false;
     message;
     accessLimit = 0
+    acccessCount;
     constructor(
         private router: ActivatedRoute,
         private userService: UserService,
         private alertService: AlertService) {
         this.link = this.router.snapshot.params['link'];
         this.accessLimit = this.router.snapshot.params['accessLimit'];
-
+        this.acccessCount = this.accessLimit
     }
 
     ngOnInit() {
