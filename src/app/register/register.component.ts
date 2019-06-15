@@ -18,10 +18,11 @@ export class RegisterComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({           
+        this.registerForm = this.formBuilder.group({
             message: ['', Validators.required],
             displayCount: ['', Validators.required],
-            destroyTime : ['', Validators.required]
+            destroyTime: ['', Validators.required],
+            downlaodLimit: [''],
 
         });
     }
@@ -42,13 +43,16 @@ export class RegisterComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 (data: any) => {
-                    if (data.code == 200) {
-                        localStorage.setItem('userData', data);
-                        this.alertService.success('Registration successful', true);
-                        this.router.navigate(['/login']);
-                    }
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    // if (data.code == 200) {        
+                    this.userService.getUrl(data.key)                       
+                        .subscribe(
+                            (data: any) => {                               
+                                this.router.navigate(['/login', { 'link': data.key }]);                                
+                            },
+                            error => {
+                                this.alertService.error(error);
+                                this.loading = false;
+                            });                    
                 },
                 error => {
                     this.alertService.error(error);
