@@ -1,0 +1,10 @@
+<!-- <button *ngIf='accessLimit != 0 && (acccessCount == accessLimit)' (click)='geUrl()'>http://192.168.1.143:4200/{{link}}</button> -->
+<!-- <div *ngIf='accessLimit != 0 && (acccessCount != accessLimit)'> -->
+    <!-- <button (click)='geUrl()'>Get Message</button> -->
+    Your Message:{{message}}
+    <!-- You Left Only {{accessLimit}} Attempts -->
+  
+<!-- </div> -->
+<div *ngIf='accessLimit == 0'>
+    Sorry Message get destroyed
+</div>

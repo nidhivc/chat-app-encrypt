@@ -17,8 +17,18 @@ export class MessageService {
         });
     }
 
-    getUrl(key: any) {
+    getURL(key: any) {
         return this.http.get(`${environment.apiUrl}user/get?id=${key}`);
+    }
+
+    shareURL(data: any) {
+        return this.http.post(`${environment.apiUrl}sendEmail`, {
+            'params': {
+                "name": "Solanki Ram",
+                "email": "ram.solanki@viitor.cloud",
+                "link": 'http://192.168.1.143:4200/' + data
+            }
+        });
     }
 
 

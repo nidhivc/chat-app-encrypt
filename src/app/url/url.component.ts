@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import {  ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService, MessageService } from '../_services';
-
+// import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -12,14 +12,17 @@ export class UrlComponent implements OnInit {
     link;
     loading = false;
     message;
-    accessLimit = 0
+    accessLimit: any = 0
     acccessCount;
     constructor(
         private router: ActivatedRoute,
+        private route: Router,
         private userService: MessageService,
-        private alertService: AlertService) {
+        private alertService: AlertService
+        // public dialog: MatDialog
+    ) {
         this.link = this.router.snapshot.params['link'];
-        this.accessLimit = this.router.snapshot.params['accessLimit'];
+        this.accessLimit = localStorage.getItem('accessLimit');
         this.acccessCount = this.accessLimit
     }
 
@@ -27,23 +30,12 @@ export class UrlComponent implements OnInit {
 
     }
     geUrl() {
-        this.loading = true;
-        this.userService.getUrl(this.link)
-            .subscribe(
-                (data: any) => {
-                    if (data != undefined) {
-                        this.message = data[0].message
-                        this.accessLimit--
-                    }
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+        this.route.navigate(['/displayMessage', { 'link': this.link }]);
     }
     shareURL() {
+        // let email = alert("Enter Email :")
         this.loading = true;
-        this.userService.getUrl(this.link)
+        this.userService.shareURL(this.link)
             .subscribe(
                 (data: any) => {
                 },

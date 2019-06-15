@@ -13,6 +13,7 @@ import { AuthGuard } from './_guards';
 import { AlertService, MessageService } from './_services';
 import { UrlComponent } from './url';
 import { MessageComponent } from './message';;
+import { DisplayMsgComponent } from './display-msg/display-msg.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MessageComponent } from './message';;
         AlertComponent,
         UrlComponent,
         MessageComponent
-    ],
+,
+        DisplayMsgComponent    ],
     providers: [
         AuthGuard,
         AlertService,

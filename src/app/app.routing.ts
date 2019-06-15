@@ -2,11 +2,13 @@
 import { UrlComponent } from './url';
 import { MessageComponent } from './message';
 import { AuthGuard } from './_guards';
+import { DisplayMsgComponent } from './display-msg/display-msg.component';
 
 const appRoutes: Routes = [
     { path: '', component: MessageComponent, canActivate: [AuthGuard] },
     { path: 'url', component: UrlComponent },
     { path: 'message', component: MessageComponent },   
+    { path: 'displayMessage', component: DisplayMsgComponent },   
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

@@ -43,7 +43,8 @@ export class MessageComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 (data: any) => {
-                    this.router.navigate(['/url', { 'link': data.key, 'accessLimit': this.messageForm.value.displayCount }]);
+                    localStorage.setItem('accessLimit', this.messageForm.value.displayCount);
+                    this.router.navigate(['/url', { 'link': data.key }]);
                     // if (data.code == 200) {        
 
                 },
