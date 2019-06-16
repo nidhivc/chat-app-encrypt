@@ -1,7 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { FormsModule } from '@angular/forms';
 import { AlertService, MessageService } from '../_services';
-// import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+// import {MatDialog, MatDialogConfig} from "@angular/material";
+// import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+
 
 
 @Component({
@@ -13,7 +16,10 @@ export class UrlComponent implements OnInit {
     loading = false;
     message;
     accessLimit: any = 0
+    email
     acccessCount;
+    user_name
+    showOptions: boolean = false;
     constructor(
         private router: ActivatedRoute,
         private route: Router,
@@ -32,15 +38,34 @@ export class UrlComponent implements OnInit {
     geUrl() {
         this.route.navigate(['/displayMessage', { 'link': this.link }]);
     }
+    openURL() {
+        this.showOptions = !this.showOptions
+    }
     shareURL() {
-        // let email = alert("Enter Email :")
+
+        // const dialogConfig = new MatDialogConfig();
+
+        // dialogConfig.disableClose = true;
+        // dialogConfig.autoFocus = true;
+
+        // this.dialog.open(DialogBoxComponent, dialogConfig);
+
+        // // let email = alert("Enter Email :")
+        console.log('this.email', this.email)
+        console.log('this.user_name', this.user_name)
+        let data: any = {
+            'email': this.email,
+            'user_name': this.user_name,
+            'link': 'http://192.168.1.143:4200/' + this.link
+        }
         this.loading = true;
-        this.userService.shareURL(this.link)
+        this.userService.shareURL(data)
             .subscribe(
                 (data: any) => {
+                   alert('Email sent successfully');
                 },
                 error => {
-                    this.alertService.error(error);
+                    alert('Email not sent');
                     this.loading = false;
                 });
     }
