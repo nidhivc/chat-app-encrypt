@@ -1,2 +1,11 @@
 ﻿<button (click)='geUrl()'>http://192.168.1.143:4200/{{link}}</button>
-<button (click)='shareURL()'>Share URL</button>
+<button (click)='openURL()'>Share URL</button>
+<div *ngIf='showOptions'>
+    <form >
+          emails:  <input type="text" name="user_name" [(ngModel)]="user_name"  /> <br />
+            user name:<input type="text" name="email" [(ngModel)]="email"  /> <br />
+            
+            <button (click)='shareURL()'>Send</button>
+            <!-- <input type="submit" value="submit" [disabled]="f.invalid" /> -->
+    </form>
+</div>

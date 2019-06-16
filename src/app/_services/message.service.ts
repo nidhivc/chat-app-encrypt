@@ -12,7 +12,7 @@ export class MessageService {
                 'message': data.message,
                 'accessLimit': data.displayCount,
                 'downlaodLimit': data.downlaodLimit,
-                "timeLimit": data.timeLimit
+                "timeLimit": data.destroyTime
             }
         });
     }
@@ -22,11 +22,11 @@ export class MessageService {
     }
 
     shareURL(data: any) {
-        return this.http.post(`${environment.apiUrl}sendEmail`, {
+        return this.http.post(`${environment.apiUrl}user/sendEmail`, {
             'params': {
-                "name": "Solanki Ram",
-                "email": "ram.solanki@viitor.cloud",
-                "link": 'http://192.168.1.143:4200/' + data
+                "name": data.user_name,
+                "email": data.email,
+                "link":  data.link
             }
         });
     }

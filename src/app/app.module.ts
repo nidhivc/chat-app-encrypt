@@ -13,12 +13,14 @@ import { AuthGuard } from './_guards';
 import { AlertService, MessageService } from './_services';
 import { UrlComponent } from './url';
 import { MessageComponent } from './message';;
+import { FormsModule } from '@angular/forms';
 import { DisplayMsgComponent } from './display-msg/display-msg.component';
 
 
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         routing     
