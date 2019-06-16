@@ -79,7 +79,7 @@
         padding: 80px 60px 60px;
 
         &:before {
-            top: -23%;
+            top: -60px;
         }
 
         button,
@@ -158,8 +158,9 @@
 
 @media screen and (max-width: 767px) {
     .formBackground {
-        padding: 30px 15px 30px;
-        height: 100vh;
+        padding: 70px 15px 30px;
+        height: 100%;
+        min-height: 100vh;
 
         .formMain {
             padding: 60px 20px 20px;
@@ -176,6 +177,7 @@
                 width: 100%;
                 padding: 20px 15px;
             }
+
             .formLeft {
                 padding: 20px 15px;
             }
