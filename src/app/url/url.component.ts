@@ -62,10 +62,10 @@ export class UrlComponent implements OnInit {
         this.userService.shareURL(data)
             .subscribe(
                 (data: any) => {
-                    this.alertService.success('Email sent successfully', true);
+                   alert('Email sent successfully');
                 },
                 error => {
-                    this.alertService.error(error);
+                    alert('Email not sent');
                     this.loading = false;
                 });
     }
