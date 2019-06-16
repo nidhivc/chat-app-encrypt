@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, MessageService } from '../_services';
 
-@Component({ templateUrl: 'message.component.html' })
+@Component({ templateUrl: 'message.component.html', styleUrls: ['message.component.scss'] })
 export class MessageComponent implements OnInit {
     messageForm: FormGroup;
     loading = false;

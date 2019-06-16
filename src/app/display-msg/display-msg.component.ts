@@ -5,7 +5,7 @@ import { MessageService, AlertService } from '../_services';
 @Component({
   selector: 'app-display-msg',
   templateUrl: './display-msg.component.html',
-  styleUrls: ['./display-msg.component.css']
+  styleUrls: ['./display-msg.component.scss']
 })
 export class DisplayMsgComponent implements OnInit {
 

@@ -1,0 +1,166 @@
+.formBackground {
+    background: url(../../assets/images/background.jpg);
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    .formMain {
+        background: #ffff;
+        padding: 60px;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
+        border: 5px #002456 solid;
+        position: relative;
+        &::before {
+            content: '';
+            background: url(../../assets/images/secure-envelope.svg);
+            background-size: 65%;
+            background-position: center;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: -11%;
+            left: 0;
+            right: 0;
+            border-radius: 100%;
+            border: 5px #002456 solid;
+            margin: auto;
+            background-repeat: no-repeat;
+            z-index: 999;
+            background-color: #fff;
+        }
+        &>div {
+            width: 50%;
+            float: left;
+            padding: 30px;
+            text-align: center
+        }
+        .formLeft {
+            border: 2px dashed #e1e1e1;
+            border-radius: 10px;
+            h2 {
+                font-weight: 700;
+                margin-bottom: 15px;
+                color: #002456;
+            }
+            p {
+                font-size: 14px;
+                opacity: 0.5;
+                margin-bottom: 20px;
+                display: block;
+            }
+            .form-group {
+                input {
+                    &:focus {
+                        box-shadow: none;
+                        border-color: #012c68;
+                    }
+                }
+                button {
+                    width: 100%;
+                    background: #002456;
+                    border-color: #002456;
+                    color: #ffffff;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    transition: all 400ms;
+                    &:hover {
+                        background: #001431;
+                        border-color: #001431;
+                    }
+                }
+            }
+        }
+        .formRight {
+            h2 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                color: #012c68;
+            }
+            p {
+                opacity: 0.5;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #ccc;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ccc;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #ccc;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #ccc;
+}
+
+@media screen and (max-width: 991px) {
+    .formBackground {
+        background: #f7f7f7;
+        .formMain {
+            padding: 60px 40px;
+            &>div {
+                padding: 20px;
+            }
+            .formLeft {
+                h2 {
+                    font-size: 28px;
+                }
+            }
+            .formRight {
+                h2 {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .formBackground {
+        padding: 70px 15px 30px;
+        display: block;
+        height: 100%;
+        .formMain {
+            padding: 60px 20px 20px;
+            &:before {
+                top: -7%;
+                transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                -ms-transform: scale(0.8);
+                -o-transform: scale(0.8);
+            }
+            &>div {
+                width: 100%;
+                padding: 20px 15px;
+            }
+            .formLeft {
+                h2 {
+                    font-size: 24px;
+                }
+            }
+            .formRight {
+                h2 {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
